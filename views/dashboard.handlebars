@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Welcome to the Dashboard</h1>
+    <h2>Your Posts:</h2>
+    {{#if userPosts.length}}
+        <ul>
+            {{#each userPosts}}
+                <li>{{this.title}} - {{this.createdAt}} <button onclick="deletePost('{{this.id}}')">Delete</button></li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No posts created yet.</p>
+    {{/if}}
+    <form action="/dashboard/add" method="post">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="content" placeholder="Content" required></textarea>
+        <button type="submit">Add Post</button>
+    </form>
+    <a href="/">Homepage</a>
+    <a href="/auth/logout">Logout</a>
+
+    <script src="/js/script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

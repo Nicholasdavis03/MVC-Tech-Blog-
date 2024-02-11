@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+    {{#if posts.length}}
+        <ul>
+            {{#each posts}}
+                <li><a href="/post/{{this.id}}">{{this.title}}</a> - {{this.createdAt}}</li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No posts available.</p>
+    {{/if}}
+    <a href="/dashboard">Dashboard</a>
+    <a href="/auth/logout">Logout</a>
+
+    <script src="/js/script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
